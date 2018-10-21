@@ -24,7 +24,7 @@ def value_descriptor(name, server, description, type, unit, default='', formatti
             'uomLabel':unit,
             'defaultValue':default,
             'formatting':formatting,
-            'labels': '[\"' + name + '\"]'
+            'labels': [name]
             }
     return req.post(url, body)
 
@@ -35,14 +35,14 @@ def generate_device_profile():
 
 def create_device_profile(server, filepath):
     url = 'http://' + server + ':48081/api/v1/deviceprofile/uploadfile'
-    body = {'file': open(filepath)}
-    return req.post(url, body)
+    body = {'file': open(filepath).read()}
+    return req.filepost(url, body)
 
 def create_device_service(name, server, description, addressable_name, adminState='unlocked', operatingState='enabled'):
     url = 'http://' + server + ':48081/api/v1/deviceservice'
     body = {'name':name,
             'description':description,
-            'labels': '[\"' + name + '\"]',
+            'labels': [name],
             'adminState':adminState,
             'operatingState':operatingState,
             'addressable': {'name':addressable_name}}
@@ -53,9 +53,9 @@ def provision_device(name, server, description, addressablename, servicename, pr
     body = {'name':name,
             'description':description,
             'adminState':adminState,
-            'operationState':operatingState,
+            'operatingState':operatingState,
             'addressable':{'name':addressablename},
-            'labels':'[\"' + name + '\"]',
+            'labels':[name],
             'service':{'name':servicename},
             'profile':{'name':profilename}}
     return req.post(url, body)
