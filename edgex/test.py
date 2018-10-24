@@ -1,7 +1,8 @@
 import setup
 import random
 
-name = 'test' + str(random.randint(0, 100))
+#name = 'test' + str(random.randint(0, 100))
+name = 'test-get-put'
 print(setup.provision_device_addressable(name, 'localhost', '2.2.2.2', 4444, 5555))
 print(setup.value_descriptor('devicedata', 'localhost', 'data from device', 'S', 'none'))
 print(setup.value_descriptor('serverdata', 'localhost', 'data from device', 'S', 'none'))
