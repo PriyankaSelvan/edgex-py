@@ -6,7 +6,6 @@ def get(url, params = {}):
     return r.status_code, r.json
 
 def post(url, params):
-    sleep(2)
     print('-------')
     print("posting " + str(params).replace('\'','\"'))
     r = requests.post(url=url, data = str(params).replace('\'','\"'))
@@ -19,7 +18,12 @@ def filepost(url, params):
     r = requests.post(url=url, files = params)
     return r.status_code, r.text
 
-def put(url, params):
-    r = requests.put(url=url, json = params)
+#specific to edgex
+def put(device, params):
+    code, json = get('http://localhost:48082/api/v1/device/name/' + device)
+    url = json["put"]["url"]
+    print('-------')
+    print("putting " + str(params).replace('\'', '\"'))
+    r = requests.put(url=url, data = str(params).replace('\'','\"'))
     return r.status_code, r.content
 
