@@ -13,7 +13,7 @@ def api_message():
 	print (device_name)
 	#start of device stuff
 	server = 'localhost'
-	ip = request.remote_addr()
+	ip = request.remote_addr
 	port1 = '4996'
 	port2 = '4997'
 	location = request.get_json()['location']
