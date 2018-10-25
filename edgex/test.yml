@@ -9,12 +9,23 @@ commands:
   - 
     name: test
     get: 
-        path: "/api/v1/devices/{deviceId}/devicedata"
+        path: "/api/v1/devices/{deviceId}/location"
         responses:
           - 
             code: "200"
             description: "data from device"
-            expectedValues: ["devicedata"]
+            expectedValues: ["location"]
+          -
+            code: "503"
+            description: "service unavailable"
+            expectedValues: ["error"]
+    get:
+        path: "/api/v1/devices/{deviceId}/phone"
+        responses:
+          -
+            code: "200"
+            description: "phone number"
+            expectedValues: ["phone"]
           -
             code: "503"
             description: "service unavailable"

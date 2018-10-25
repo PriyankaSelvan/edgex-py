@@ -14,7 +14,8 @@ def provision_device(device_name, server, device_ip, device_port, device_service
 #specific to our application
 def provision_data(server):
     print('Setting value descriptors----')
-    print(setup.value_descriptor('devicedata', server, 'data from device', 'S', 'none'))
+    print(setup.value_descriptor('location', server, 'data from device', 'S', 'none'))
+    print(setup.value_descriptor('phone', server, 'data from device', 'S', 'none'))
     print(setup.value_descriptor('serverdata', server, 'data from device', 'S', 'none'))
     print('Setting device profile-------')
     print(setup.create_device_profile(server, 'test.yml'))

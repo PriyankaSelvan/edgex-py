@@ -19,6 +19,7 @@ def filepost(url, params):
     return r.status_code, r.text
 
 #specific to edgex
+#{'serverdata': <phonenumber>}
 def put(device, params):
     code, json = get('http://localhost:48082/api/v1/device/name/' + device)
     url = json["put"]["url"]
