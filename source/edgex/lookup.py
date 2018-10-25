@@ -1,8 +1,8 @@
 import event
 
 def get_phone(server, location):
-    code, json1 = event.get_reading(server, 'location')
-    code, json2 = event.get_reading(server, 'phone')
+    code, json1 = event.get_reading(server, 'location', 10)
+    code, json2 = event.get_reading(server, 'phone', 10)
     created = ""
     for field in json1:
         if field["value"] == location:
