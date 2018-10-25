@@ -1,0 +1,45 @@
+# Copyright 2017 Dell Inc. All rights reserved.
+name: "testprofile"
+manufacturer: "androidtest"
+model: "test1"
+labels: 
+    - "test1"
+description: "test profile"
+commands: 
+  - 
+    name: test
+    get: 
+        path: "/api/v1/devices/{deviceId}/location"
+        responses:
+          - 
+            code: "200"
+            description: "data from device"
+            expectedValues: ["location"]
+          -
+            code: "503"
+            description: "service unavailable"
+            expectedValues: ["error"]
+    get:
+        path: "/api/v1/devices/{deviceId}/phone"
+        responses:
+          -
+            code: "200"
+            description: "phone number"
+            expectedValues: ["phone"]
+          -
+            code: "503"
+            description: "service unavailable"
+            expectedValues: ["error"]
+  
+    put:
+        path: "/api/v1/devices/{deviceId}/serverdata"
+        parameterNames: ["serverdata"]
+        responses:
+          - 
+            code: "204"
+            description: "Set some data from server"
+            expectedValues: []
+          -
+            code: "503"
+            description: "service unavailable"
+            expectedValues: ["error"]
