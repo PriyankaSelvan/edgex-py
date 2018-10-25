@@ -1,5 +1,4 @@
 import req
-
 def addressable(name, server, deviceip, deviceport, device_endpoint,
                 publisher = 'none', username = 'none', password = 'none',topic = 'none'):
     url = 'http://' + server + ':48081/api/v1/addressable'
