@@ -13,8 +13,10 @@ def show():
 	else :
 		return render_template('red.html')
 
-@app.route('/', methods=['PUT'])
-def flip():
+#@app.route('', methods=['PUT'])
+@app.errorhandler(404)
+def flip(shit):
+	print (shit)
         global flag
 	if flag ==0:
 		flag = 1
