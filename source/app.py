@@ -10,6 +10,7 @@ app = Flask(__name__)
 
 @app.route('/query', methods = ['POST'])
 def api_message():
+	#priyas device
 	device_name = generate_word(4)
 	print (request.get_json())
 	print (device_name)
@@ -28,9 +29,9 @@ def api_message():
 
 	#put to edgex
 	req.put(device_name, {'serverdata':phone_num}, server)
-
+        req.put('road-display', {'data':''}, 'localhost')
 	#end of device stuff
-	return 'Success'
+	return ('Success')
 
 if __name__ =='__main__':
 	provision.provision_data('localhost')

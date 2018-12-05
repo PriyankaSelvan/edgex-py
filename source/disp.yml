@@ -1,15 +1,15 @@
 # Copyright 2017 Dell Inc. All rights reserved.
-name: "displayprofile"
-manufacturer: "dell"
-model: "ultrabook"
+name: "roadprofile"
+manufacturer: "androidtest"
+model: "test1"
 labels: 
-    - "display"
-description: "profile for the display device"
+    - "disp"
+description: "test profile"
 commands: 
   - 
-    name: disp
+    name: data
     put:
-        path: "/api/v1/devices/{deviceId}/data4display"
+        path: "/api/v1/devices/{deviceId}/data"
         parameterNames: ["data"]
         responses:
           - 

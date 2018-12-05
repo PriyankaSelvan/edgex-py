@@ -13,7 +13,7 @@ def show():
 	else :
 		return render_template('red.html')
 
-@app.route('/flip', methods=['PUT'])
+@app.route('/', methods=['PUT'])
 def flip():
         global flag
 	if flag ==0:
@@ -21,3 +21,6 @@ def flip():
 	else:
 		flag = 0
 	return 'Success'
+
+if __name__=='__main__':
+	app.run(debug=True, host='0.0.0.0', port=5000)
