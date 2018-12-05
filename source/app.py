@@ -29,9 +29,10 @@ def api_message():
 
 	#put to edgex
 	req.put(device_name, {'serverdata':phone_num}, server)
-        req.put('road-display', {'data':''}, 'localhost')
+	req.put('road-display', {'data':''}, 'localhost')
 	#end of device stuff
-	return ('Success')
+	#return ('Success')
+	return {'serverdata':phone_num}
 
 if __name__ =='__main__':
 	provision.provision_data('localhost')
