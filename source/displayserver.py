@@ -12,7 +12,6 @@ def show():
 		return render_template('green.html')
 	else :
 		return render_template('red.html')
-
 #@app.route('', methods=['PUT'])
 @app.errorhandler(404)
 def flip(shit):
@@ -25,4 +24,4 @@ def flip(shit):
 	return 'Success'
 
 if __name__=='__main__':
-	app.run(debug=True, host='0.0.0.0', port=5000)
+	app.run(debug=True)
